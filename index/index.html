@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="ta">
+<head>
+  <meta charset="utf-8" />
+  <title>Surprise Gift</title>
+  <style>
+    body{
+      margin:0;
+      font-family:"Noto Sans Tamil", sans-serif;
+      background:linear-gradient(180deg,#0f030d);
+      color:hsla(0, 0%, 100%, 0.525);display:flex;align-items:center;justify-content:center;
+      height:100vh;
+    }
+    /* Hearts background animation */ .heart { position: absolute; top: -10px; color: red; font-size: 24px; animation: fall 6s linear infinite; } 
+    
+    @keyframes fall { 0% { transform: translateY(-10px) rotate(0deg); opacity:1; } 100% { transform: translateY(100vh) rotate(360deg); opacity:0; } }
+
+    .page{display:none;text-align:center;padding:20px}
+    .page.active{display:block}
+    .fingerArea{
+      width:150px;height:150px;border-radius:50%;
+      background:#222;display:flex;align-items:center;justify-content:center;
+      margin:auto;cursor:pointer;box-shadow:0 0 25px rgba(255,0,80,.7);
+      transition:transform .2s;
+    }
+    .fingerArea:active{transform:scale(.93)}
+    img.photo{max-width:90%;max-height:60vh;border-radius:12px;box-shadow:0 0 20px hsla(192, 86%, 41%, 0.307)}
+    .kavithai{margin:16px 0;font-size:18px;color:#ddd}
+    .nextBtn{
+      font-size:42px;background:none;border:none;cursor:pointer;margin-top:10px
+    }
+    .final h2{font-size:24px;color:pink}
+
+     /* Animated sticker */
+    .animated-sticker {
+      position: absolute;
+      bottom: 100px;
+      right: 150px;
+      width: 250px;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+    <!-- Floating hearts --> 
+     <script> 
+     function createHearts() { 
+        const heart = document.createElement("div");
+        heart.className = "heart"; heart.innerHTML = "❤️"; 
+        heart.style.left = Math.random() * 100 + "vw"; 
+        heart.style.fontSize = Math.random() * 30 + 25 + "px"; 
+        document.body.appendChild(heart); 
+        setTimeout(() => heart.remove(), 6000);             
+    } 
+    setInterval(createHearts, 250); 
+    </script>
+
+ <!-- Animated Sticker (GIF) -->
+  <img src="https://i.pinimg.com/originals/18/ea/9e/18ea9e8b6b921ba7ce0081c48b802670.gif"  alt="Love Sticker" class="animated-sticker">
+  <!-- Fingerprint first page -->
+  <div id="page1" class="page active">
+    <h2>Touch My Heart</h2>
+    <div class="fingerArea" onclick="goNext(2)">
+       Chlm😘
+    </div>
+  </div>
+
+  <!-- Kavithai after fingerprint -->
+
+  <div id="page2" class="page">
+    <h2>கனவரே😘😍</h2>
+    <p class="kavithai">"சாகும்" போது எங்கு இருப்பேன் தெரியாது' ஆனால்...!!! <br> இருக்கும் போது "உன்னை" மட்டுமே நினைத்துக் கொண்டு இருப்பேன்....😍💖</p>
+    <button class="nextBtn" onclick="goNext(3)">💋</button>
+    <audio id="bgSong" src="c:\Users\HP\Music\onna renda enna nanum solla.mp3"></audio>
+  </div>
+
+  <!-- Photo page 1 -->
+
+  <div id="page3" class="page">
+    <img class="photo" src="c:\Users\HP\Videos\Captures\WhatsApp Image 2025-10-06 at 19.05.02_bbf6838a.jpg" alt="Photo1"/>
+    <p class="kavithai">கண் முன் நிற்கும் நீ😘<br> என் இதயத்தில் எப்போதும் நிறைவாய் 😍🌹</p>
+    <button class="nextBtn" onclick="goNext(4)">💋</button>
+  </div>
+
+  <!-- Photo page 2 -->
+
+  <div id="page4" class="page">
+    <img class="photo" src="c:\Users\HP\Videos\Captures\WhatsApp Image 2025-07-16 at 19.24.56_b90b8979.jpg" alt="Photo2"/>
+    <p class="kavithai">சண்டை என்றாலும் நீ தான்...!😍<br> சமாதானம் என்றாலும் நீ தான்...!😘😍<br> எது என்றாலும் நீ மட்டும் தான்...!🤩😍<br> என் அன்பு, ஆசை, கோவம் அனைத்திற்கும் சொந்தம் நீ😍<br> என்றும்  நீ மட்டும் தான்...…💕</p>
+    <button class="nextBtn" onclick="goNext(5)">💋</button>
+  </div>
+
+  <!-- Photo page 3 -->
+
+  <div id="page5" class="page">
+    <img class="photo" src="c:\Users\HP\Videos\Captures\WhatsApp Image 2025-07-16 at 20.23.07_35b8d22a.jpg" alt="Photo3"/>
+    <p class="kavithai">அணைத்துக்கொண்டு அருகில் இருப்பதும் காதல் தான்..😍 <br> நினைத்துக் கொண்டு தொலைவில் இருப்பதும் காதல் தான்...😍</p>
+    <button class="nextBtn" onclick="goNext(6)">💋</button>
+  </div>
+
+  <!-- Photo page 4 -->
+
+  <div id="page6" class="page">
+    <img class="photo" src="c:\Users\HP\Videos\Captures\WhatsApp Image 2025-10-06 at 19.05.03_4422daa5.jpg" alt="Photo4"/>
+    <p class="kavithai">கண்களுக்கு அருகில் இருப்பதை விட <br> இதயத்திற்கு அருகில் இருப்பது தான் காதல்🤩😍</p>
+    <button class="nextBtn" onclick="goNext(7)">💋</button>
+  </div>
+
+    <!-- Photo page 5 -->
+
+  <div id="page7" class="page">
+    <img class="photo" src="c:\Users\HP\Videos\Captures\WhatsApp Image 2025-09-01 at 13.11.19_3dc78881.jpg" alt="Photo5"/>
+    <p class="kavithai">உன்னுடன் வாழ பிறந்தவள் அல்ல <br> உனக்காகவே வாழ பிறந்தவள்...!!😘😘</p>
+    <button class="nextBtn" onclick="goNext(8)">💋</button>
+  </div>
+
+  <!-- Final Kavithai page -->
+
+  <div id="page8" class="page final">
+    <h2>💖 Finaly Once Again Happy Birthday Thangooo💋💋💖</h2>
+    <p class="kavithai">பிடித்த ஒருவரின் அழைப்பிற்காக  காத்திருக்கும் வலி <br>  உண்மையாய் நேசித்த சில உள்ளங்களுக்கு மட்டுமே புரியும்🤩💋 </p>
+    <button class="heart-button" onclick="location.reload()" style="margin-top: 20px;">மீண்டும் தொடங்கு 💋</button>
+  </div>
+
+  <script>
+    function goNext(n){
+      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+      document.getElementById('page'+n).classList.add('active');
+      if(n===2){ // start song
+        document.getElementById('bgSong').play().catch(()=>{});
+      }
+    }
+  </script>
+</body>
+</html>
